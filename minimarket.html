@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mini Mart Jaya — WiFi Member Daffiyanet</title>
+<meta name="description" content="WiFi member gratis di Mini Mart Jaya. Login member ID Anda." />
+<link rel="icon" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #15803d;
+    --green-2: #166534;
+    --red: #dc2626;
+    --red-2: #b91c1c;
+    --yellow: #facc15;
+    --cream: #fffdf5;
+    --text: #101828;
+    --muted: #475569;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, var(--green) 0%, #0f5132 45%, #063a21 100%); color: var(--text); min-height: 100vh; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; background: var(--green-2); color: #fff; border-bottom: 4px solid var(--red); position: sticky; top: 0; z-index: 10; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .brand img { width: 44px; height: 44px; border-radius: 10px; object-fit: contain; background: #fff; padding: 3px; }
+  .brand strong { font-size: 20px; font-weight: 800; }
+  .brand small { display: block; color: #a7f3d0; font-size: 10px; letter-spacing: 0.5px; }
+  .status-pill { font-size: 12px; background: #fff; color: var(--green-2); padding: 6px 14px; border-radius: 999px; font-weight: 800; }
+
+  main { display: grid; grid-template-columns: 1.15fr 1fr; max-width: 1200px; margin: 0 auto; padding: 24px 20px 40px; gap: 28px; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } }
+
+  .hero { color: #fff; display: flex; flex-direction: column; gap: 14px; }
+  .badge { background: var(--yellow); color: #422006; font-size: 11px; font-weight: 800; padding: 6px 12px; border-radius: 999px; width: max-content; letter-spacing: 0.5px; }
+  h1 { font-size: clamp(30px, 4.2vw, 46px); line-height: 1.1; font-weight: 800; }
+  h1 .hl { color: var(--yellow); }
+  .sub { color: #ecfdf5; font-size: 14px; max-width: 560px; line-height: 1.6; }
+
+  .promo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 4px; max-width: 560px; }
+  @media (max-width: 560px) { .promo-grid { grid-template-columns: 1fr; } }
+  .promo { background: rgba(255,255,255,0.96); border-radius: 14px; border-left: 6px solid var(--red); padding: 12px 14px; }
+  .promo .tag { background: var(--red); color: #fff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; width: max-content; letter-spacing: 0.5px; }
+  .promo h3 { font-size: 14px; margin: 4px 0 2px; color: var(--green-2); }
+  .promo .price { color: var(--red); font-weight: 800; font-size: 17px; }
+  .promo .price small { font-size: 11px; color: var(--muted); font-weight: 600; }
+
+  .panel { background: #fff; border-radius: 24px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); max-width: 450px; margin-left: auto; width: 100%; }
+  @media (max-width: 980px) { .panel { margin: 0; } }
+  .login-heading { font-size: 22px; font-weight: 800; color: var(--green-2); }
+  .login-sub { color: var(--muted); font-size: 13px; }
+  form.login { display: flex; flex-direction: column; gap: 11px; }
+  label { font-size: 12px; color: var(--muted); font-weight: 600; }
+  input[type=text], input[type=password] { background: #f8fafc; border: 1.5px solid var(--border); color: var(--text); border-radius: 10px; padding: 13px 14px; font-size: 14px; }
+  input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(21,128,61,0.15); }
+  .btn { background: linear-gradient(135deg, var(--green) 0%, var(--green-2) 100%); color: #fff; border: none; border-radius: 10px; padding: 14px; font-size: 15px; font-weight: 800; cursor: pointer; }
+  .hint { text-align: center; color: var(--muted); font-size: 12px; }
+  .hint a { color: var(--green-2); text-decoration: none; font-weight: 700; }
+
+  .donate { border: 1.5px dashed var(--yellow); background: #fefce8; border-radius: 12px; padding: 10px; font-size: 12px; color: #422006; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .donate .mono { font-family: ui-monospace, Menlo, monospace; font-weight: 800; }
+  .donate a { color: var(--red); text-decoration: none; font-weight: 700; }
+
+  footer { text-align: center; padding: 14px; color: #a7f3d0; font-size: 11px; background: var(--green-2); border-top: 2px solid var(--red); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#">
+    <img src="logo.png" alt="Mini Mart Jaya" />
+    <span>
+      <strong>Mini Mart Jaya</strong>
+      <small>Fresh Daily · Daffiyanet WiFi</small>
+    </span>
+  </a>
+  <div class="status-pill">MEMBER ACTIVE</div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="badge">★ PROMO MEMBER BULAN INI</span>
+    <h1><span class="hl">Diskon Member</span> Setiap Hari, Setiap Item</h1>
+    <p class="sub">Daftar jadi Member Mini Mart Jaya — dapat poin tiap belanja &amp; diskon khusus untuk produk kebutuhan harian Anda.</p>
+
+    <div class="promo-grid" aria-label="Promo member">
+      <div class="promo"><span class="tag">MEMBER DEAL</span><h3>Beras Premium 5 kg</h3><div class="price">62k <small>dari 68k</small></div></div>
+      <div class="promo"><span class="tag">MEMBER DEAL</span><h3>Minyak Goreng 2L</h3><div class="price">31k <small>dari 35k</small></div></div>
+      <div class="promo"><span class="tag">BUNDLE</span><h3>Telur 1 kg + Susu UHT</h3><div class="price">27k <small>dari 32k</small></div></div>
+      <div class="promo"><span class="tag">MEMBER DEAL</span><h3>Gula Pasir 1 kg</h3><div class="price">15k <small>dari 17k</small></div></div>
+      <div class="promo"><span class="tag">BUNDLE</span><h3>Kopi Bubuk 250g + Gula 500g</h3><div class="price">23k <small>dari 28k</small></div></div>
+      <div class="promo"><span class="tag">MEMBER DEAL</span><h3>Sabun Mandi Lifebuoy 100g</h3><div class="price">5k <small>(member 9+5.5k member)</small></div></div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Form login member WiFi">
+    <div class="login-heading">Login Member</div>
+    <div class="login-sub">Masukkan ID member Anda — struk belanja = username &amp; password.</div>
+
+    <form class="login" name="login" action="$(link-login-only)" method="post">
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <div>
+        <label for="username">ID Member</label>
+        <input type="text" id="username" name="username" placeholder="mis: MMJ-00123" autocomplete="username" required />
+      </div>
+      <div>
+        <label for="password">PIN / Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn">Masuk &amp; Nikmati Promo 🛒</button>
+      <div class="hint">Belum jadi member? <a href="https://wa.me/628516163719" target="_blank" rel="noreferrer">Daftar di kasir (gratis)</a></div>
+    </form>
+
+    <div class="donate" role="note">
+      💛 Support Mini Mart: <span class="mono">08516163719</span> a/n <strong>Daffiyanet</strong> · <a href="https://billingservices.daffiyanet.my.id/donate" target="_blank" rel="noreferrer">QRIS</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Mini Mart Jaya · Jl. Daffiyanet No. 7 · 08516163719 · Powered by Daffiyanet Network
+</footer>
+</body>
+</html>
