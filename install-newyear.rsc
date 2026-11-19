@@ -1,4 +1,4 @@
-# Daffiyanet — Install Tema: Tahun Baru 2027 (newyear.html)
+# Daffiyanet — Install Tema: Voucher Hotspot (newyear.html)
 # Kompatibel: RouterOS v6.40+ & v7 (CRS / CCR / hAP / hEX / RB-series)
 # Cara pakai: paste isi file ini ke New Terminal RouterOS.
 
@@ -11,4 +11,4 @@
 /tool fetch mode=https url="$repoRaw/logo.png"  dst-path=$pngPath
 /ip hotspot profile set [find name=$profileName] login-page=newyear.html
 
-:log info "Tahun Baru 2027 - newyear.html ter-install, profile '$profileName' login-page=newyear.html"
+:log info "Voucher Hotspot - newyear.html ter-install, profile '$profileName' login-page=newyear.html"

@@ -18,7 +18,7 @@ Halaman login captive portal universal untuk **MikroTik Hotspot** — siap dipak
 | `warnet.html` | WarKom | Warnet / cyber café | Paket game + neon gaming theme |
 | `klinik.html` | Klinik Daffa Sehat | Klinik / praktek dokter | Jadwal dokter + form pasien |
 | `hotel.html` | Hotel Daffa Palace | Hotel / penginapan | Fasilitas 5★ + form tamu |
-| `newyear.html` | Tahun Baru 2027 | Momen pergantian tahun / Natal & Tahun Baru | Fireworks canvas + snow + countdown interaktif |
+| `newyear.html` | Voucher Hotspot | Hotspot prabayar (1 hari/3 hari/1 minggu/1 bulan) | Neon cyan-magenta cyberpunk + grid paket harganya |
 
 Semua tema:
 - Form login dengan kompatibel `$(link-login-only)` & `$(link-orig)`
