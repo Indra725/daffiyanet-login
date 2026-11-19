@@ -4,41 +4,34 @@ Halaman login captive portal universal untuk **MikroTik Hotspot** — siap dipak
 
 ![Logo](logo.png)
 
-## Fitur
+## Tema yang tersedia
 
-- Login form kompatibel dengan **MikroTik Hotspot** (variabel `$(link-login-only)` & `$(link-orig)` otomatis diisi)
-- Instruksi koneksi/autoupdate DHCP per OS dalam 5 tab interaktif (tanpa reload)
-- 3 paket harga yang mudah diedit langsung di `index.html`
-- Info donasi (E-Wallet **08516163719** a/n Daffiyanet, QRIS via `billingservices.daffiyanet.my.id/donate`)
-- Satu file mandiri (`index.html` + `logo.png`) — cocok di-upload ke `flash/hotspot/` MikroTik
-- Responsive (mobile & desktop), tema gelap modern, Bahasa Indonesia
-- Skrip auto-install siap pakai: `install.rsc` (RouterOS), `install.sh` (Linux/macOS), `install.ps1` (Windows)
+| File | Tema | Cocok untuk | Highlight |
+|---|---|---|---|
+| `index.html` | Daffiyanet (utama) | RT-RW-Net / ISP lokal | Paket internet + OS tabs + QRIS |
+| `cafe.html` | Kopi Daffa | Café / kedai kopi | Menu andalan + suasana hangat + form login WiFi |
+| `sekolah.html` | SMPN 1 | Sekolah / kampus | Pengumuman akademik + form login siswa/guru |
+| `salon.html` | Salon Daffa Beauty | Salon / spa / barbershop | Price list + WhatsApp booking + form login klien |
 
-## Struktur repo
-
-```
-.
-├── index.html       # Halaman login (mandiri, inline CSS+JS)
-├── logo.png         # Logo Daffiyanet
-├── install.rsc      # Auto install via RouterOS Terminal / /import
-├── install.sh       # Auto install via SSH (Linux/macOS)
-├── install.ps1      # Auto install via SSH (Windows PowerShell)
-├── LICENSE          # MIT
-└── README.md        # File ini
-```
+Semua halaman:
+- Form login dengan kompatibel `$(link-login-only)` & `$(link-orig)`
+- Tema gelap modern (curl / cream / plum) — **tidak jadul**
+- Responsive (mobile & desktop)
+- Bahasa Indonesia
+- Info donasi a/n **Daffiyanet** (08516163719)
 
 ## Cara pakai di MikroTik Hotspot
 
 **Opsi A — via Winbox (paling mudah)**
-1. Upload `index.html` & `logo.png` ke folder `hotspot/` via Winbox (Files).
+1. Upload file yang Anda inginkan (mis. `cafe.html`) ke `flash/hotspot/`.
 2. Set login page hotspot profile:
    ```
-   /ip hotspot profile set [find name=default] login-page=login.html
+   /ip hotspot profile set [find name=default] login-page=cafe.html
    ```
-3. Uji dari perangkat terhubung ke SSID hotspot.
+3. Uji dari perangkat yang terhubung ke SSID hotspot.
 
 **Opsi B — via Terminal router / import `install.rsc`**
-1. Upload `install.rsc` ke router lewat Winbox (Files) atau paste isinya langsung ke New Terminal.
+1. Upload `install.rsc` ke router via Winbox (Files), atau paste isinya ke New Terminal.
 2. Ketik:
    ```
    /import file-name=install.rsc
@@ -56,18 +49,39 @@ chmod +x install.sh
 .\install.ps1 -Router 192.168.88.1 -User admin
 ```
 
-Setelah terinstal, buka browser dari perangkat yang terhubung ke SSID hotspot — halaman Daffiyanet akan muncul otomatis.
+Setelah terinstal, buka browser dari perangkat yang terhubung ke SSID hotspot — halaman akan muncul otomatis.
+
+## Per-theme install (sekali klik, langsung di router)
+
+Setiap tema punya file `install-*.rsc` sendiri yang otomatis download & aktif di router:
+
+| File Halaman | Install `.rsc` | Tombol RouterOS Terminal |
+|---|---|---|
+| `index.html` (Daffiyanet) | [install.rsc](https://github.com/Indra725/daffiyanet-login/blob/main/install.rsc) | Paste → Enter |
+| `cafe.html` (Kopi Daffa) | [install-cafe.rsc](https://github.com/Indra725/daffiyanet-login/blob/main/install-cafe.rsc) | Paste → Enter |
+| `sekolah.html` (SMPN 1) | [install-sekolah.rsc](https://github.com/Indra725/daffiyanet-login/blob/main/install-sekolah.rsc) | Paste → Enter |
+| `salon.html` (Salon Daffa Beauty) | [install-salon.rsc](https://github.com/Indra725/daffiyanet-login/blob/main/install-salon.rsc) | Paste → Enter |
+
+## Download halaman secara manual
+
+| File | Download mentah (raw) |
+|---|---|
+| `index.html` | [`https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/index.html`](https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/index.html) |
+| `cafe.html` | [`https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/cafe.html`](https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/cafe.html) |
+| `sekolah.html` | [`https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/sekolah.html`](https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/sekolah.html) |
+| `salon.html` | [`https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/salon.html`](https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/salon.html) |
+| `logo.png` | [`https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/logo.png`](https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/logo.png) |
 
 ## Kustomisasi
 
-| Bagian | Lokasi | Cara ubah |
+| Bagian | File & lokasi | Cara ubah |
 |---|---|---|
-| Harga paket | `<div class="packages">` | Edit 3 div `.pkg` (nama, harga, kecepatan) |
-| Info donasi | `.donate` | Edit nomor/nama/e-wallet sesuai kebutuhan |
-| Logo | `logo.png` | Ganti dengan logo ISP Anda |
-| Kontak / nomor HP | `.sub`, `.trust`, footer | Edit teks |
-| OS tabs / instruksi | JS array `OS` | Edit daftar di `<script>` |
-| Profile MikroTik | form `action`, `$(...)` | Jangan diubah kecuali paham Hotspot |
+| Nama toko & sapaan | masing-masing `.html` bagian `<header>` | Edit teks |
+| Menu café / pengumuman sekolah / price list salon | dalam `<section class="hero">` | Edit konten |
+| Harga paket (utama) | `index.html` → `<div class="packages">` | Edit 3 div `.pkg` |
+| Logo | `logo.png` | Ganti dengan logo Anda (44×44) |
+| Info donasi | masing-masing file, bagian `.donate` | Edit nomor/nama |
+| Form login | bagian `<form>` | Jangan ubah variabel `$(...)` |
 
 ## Kebutuhan
 

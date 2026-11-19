@@ -1,9 +1,6 @@
-# Daffiyanet Login Page — Auto install ke MikroTik Hotspot
-# Compatible: RouterOS v6.40+ & RouterOS v7 (CCR / CRS / hAP / hEX / RB-series)
-# Cara pakai (2 opsi):
-#   A. Upload file ini ke router (via Winbox → Files), lalu ketik:
-#      /import file-name=install.rsc
-#   B. Paste isi file ini langsung ke New Terminal router, tekan Enter.
+# Daffiyanet — Install file via RouterOS Terminal (raw HTTPS) — Default (index.html)
+# Kompatibel: RouterOS v6.40+ & v7
+# Cara pakai: paste isi file ini ke New Terminal RouterOS.
 
 :local repoRaw "https://raw.githubusercontent.com/Indra725/daffiyanet-login/main"
 :local htmlPath "hotspot/login.html"
@@ -14,4 +11,4 @@
 /tool fetch mode=https url="$repoRaw/logo.png"  dst-path=$pngPath
 /ip hotspot profile set [find name=$profileName] login-page=login.html
 
-:log info "Daffiyanet login-page tersedia di $htmlPath — profile '$profileName' login-page=login.html"
+:log info "Daffiyanet (index) - login.html ter-install, profile '$profileName' login-page=login.html"
