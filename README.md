@@ -18,6 +18,7 @@ Halaman login captive portal universal untuk **MikroTik Hotspot** — siap dipak
 | `warnet.html` | WarKom | Warnet / cyber café | Paket game + neon gaming theme |
 | `klinik.html` | Klinik Daffa Sehat | Klinik / praktek dokter | Jadwal dokter + form pasien |
 | `hotel.html` | Hotel Daffa Palace | Hotel / penginapan | Fasilitas 5★ + form tamu |
+| `newyear.html` | Tahun Baru 2027 | Momen pergantian tahun / Natal & Tahun Baru | Fireworks canvas + snow + countdown interaktif |
 
 Semua tema:
 - Form login dengan kompatibel `$(link-login-only)` & `$(link-orig)`
@@ -40,6 +41,7 @@ Semua tema:
 | `warnet.html` | [`install-warnet.rsc`](https://github.com/Indra725/daffiyanet-login/blob/main/install-warnet.rsc) |
 | `klinik.html` | [`install-klinik.rsc`](https://github.com/Indra725/daffiyanet-login/blob/main/install-klinik.rsc) |
 | `hotel.html` | [`install-hotel.rsc`](https://github.com/Indra725/daffiyanet-login/blob/main/install-hotel.rsc) |
+| `newyear.html` | [`install-newyear.rsc`](https://github.com/Indra725/daffiyanet-login/blob/main/install-newyear.rsc) |
 
 Cara pakai: buka **Winbox → New Terminal**, paste seluruh isi salah satu `install-*.rsc`, tekan **Enter** — file HTML + logo akan di-download ke folder `hotspot/`, dan profile `default` akan menggunakan file tersebut sebagai `login-page`.
 
@@ -57,6 +59,7 @@ Cara pakai: buka **Winbox → New Terminal**, paste seluruh isi salah satu `inst
 | `warnet.html` | https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/warnet.html |
 | `klinik.html` | https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/klinik.html |
 | `hotel.html` | https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/hotel.html |
+| `newyear.html` | https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/newyear.html |
 | `logo.png` | https://raw.githubusercontent.com/Indra725/daffiyanet-login/main/logo.png |
 
 ## Cara pakai di MikroTik Hotspot
